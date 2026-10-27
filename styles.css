@@ -208,3 +208,38 @@ body {
   .welcome-footnote { font-size:10px; }
   .koala-welcome { min-height:180px; }
 }
+
+
+/* Subtle scrapbook/library imagery layers */
+.welcome-screen {
+  background-image:
+    linear-gradient(rgba(247,237,222,.46),rgba(247,237,222,.50)),
+    url("./cozy-library-collage.png"),
+    radial-gradient(ellipse at 50% 32%,rgba(255,253,246,.98),rgba(247,237,222,.72) 47%,transparent 72%),
+    linear-gradient(145deg,#d9c1a7 0%,#f6ecdc 44%,#d7bda0 100%);
+  background-size:cover,cover,cover,cover;
+  background-position:center,center,center,center;
+}
+.welcome-card {
+  background:rgba(255,249,239,.78);
+  border-color:rgba(163,121,82,.35);
+  box-shadow:0 24px 70px rgba(91,58,34,.18);
+}
+.library-screen {
+  background-image:
+    linear-gradient(rgba(244,237,226,.91),rgba(244,237,226,.94)),
+    url("./cozy-library-collage.png");
+  background-size:cover,cover;
+  background-position:center,center top;
+  background-attachment:fixed;
+}
+.hero {
+  background-image:
+    linear-gradient(100deg,rgba(255,250,241,.92),rgba(231,211,187,.80)),
+    url("./cozy-library-collage.png");
+  background-size:cover;
+  background-position:center 45%;
+}
+.stat-card,.book-card,.empty-state {
+  backdrop-filter:blur(3px);
+}
