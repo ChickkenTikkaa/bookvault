@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Your personal book collection, beautifully organized." />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>BookVault — Your personal library</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="BookVault home">
+        <span class="brand-mark">B<span>V</span></span>
+        <span class="brand-name">Book<span>Vault</span><small>YOUR PERSONAL LIBRARY</small></span>
+      </a>
+      <div class="side-label">LIBRARY</div>
+      <button class="nav-item active" data-view="all"><span>▦</span> All books <b id="side-total">0</b></button>
+      <button class="nav-item" data-view="reading"><span>◷</span> Currently reading</button>
+      <button class="nav-item" data-view="finished"><span>✓</span> Finished</button>
+      <button class="nav-item" data-view="wishlist"><span>♡</span> Want to read</button>
+      <div class="sidebar-bottom">
+        <div class="side-label">YOUR VAULT</div>
+        <div class="storage-note"><span class="pulse"></span><div><strong>Stored on this device</strong><small>Your books stay private in this browser.</small></div></div>
+        <button id="export-btn" class="quiet-button">⇩ Export library backup</button>
+        <label class="quiet-button import-label">⇧ Import library backup<input id="import-input" type="file" accept="application/json" hidden></label>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">B<span>V</span></span><strong>BookVault</strong></div>
+        <div class="breadcrumbs">YOUR SPACE <span>/</span> <b id="crumb-view">ALL BOOKS</b></div>
+        <button id="install-btn" class="install-btn hidden">＋ Install app</button>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="gold-dot"></span> YOUR PRIVATE COLLECTION</div>
+          <h1>A world of stories.<br><em>All in one place.</em></h1>
+          <p>Every book you own, remembered and ready when you are.</p>
+          <button class="primary-btn" id="hero-add"><span>＋</span> Add a book</button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="book-stack">
+            <div class="book book-a"><i></i><span>THE<br>ART OF<br>FOCUS</span><small>J. WILLIAMS</small></div>
+            <div class="book book-b"><i></i><span>THE<br>LONG<br>WAY HOME</span><small>A NOVEL</small></div>
+            <div class="book book-c"><i></i><span>THINK<br>AGAIN</span><small>ADAM GRANT</small></div>
+            <div class="book book-d"><i></i><span>ATOMIC<br>HABITS</span><small>JAMES CLEAR</small></div>
+          </div>
+          <div class="art-caption">A LITTLE SPACE FOR<br><strong>BIG IDEAS.</strong></div>
+        </div>
+      </section>
+
+      <section class="stats-row">
+        <div class="stat-card"><span class="stat-icon">▤</span><div><small>IN YOUR VAULT</small><strong id="stat-total">0 <i>books</i></strong></div></div>
+        <div class="stat-card"><span class="stat-icon">◷</span><div><small>IN PROGRESS</small><strong id="stat-reading">0 <i>books</i></strong></div></div>
+        <div class="stat-card"><span class="stat-icon">✦</span><div><small>COMPLETED</small><strong id="stat-finished">0 <i>books</i></strong></div></div>
+      </section>
+
+      <section class="collection-section">
+        <div class="section-head">
+          <div><div class="eyebrow">THE COLLECTION</div><h2 id="collection-title">Your bookshelf<span class="gold-text">.</span></h2></div>
+          <button class="outline-btn" id="section-add">＋ Add book</button>
+        </div>
+        <div class="toolbar">
+          <label class="search-box"><span>⌕</span><input id="local-search" type="search" placeholder="Search titles, authors, genres…" autocomplete="off"><kbd>/</kbd></label>
+          <select id="sort-select" aria-label="Sort books"><option value="recent">Recently added</option><option value="title">Title A–Z</option><option value="author">Author A–Z</option><option value="year">Publication year</option></select>
+          <div class="view-switch"><button class="view-btn selected" data-layout="grid" aria-label="Grid view">▦</button><button class="view-btn" data-layout="list" aria-label="List view">☷</button></div>
+        </div>
+        <div id="filter-chips" class="filter-chips">
+          <button class="chip active" data-filter="all">All books</button><button class="chip" data-filter="reading">Reading</button><button class="chip" data-filter="finished">Finished</button><button class="chip" data-filter="wishlist">Want to read</button>
+        </div>
+        <div id="book-grid" class="book-grid"></div>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">✧</div><h3>Your story starts here.</h3><p>Add your first book and BookVault will find its cover and details for you.</p><button class="primary-btn" id="empty-add">＋ Find your first book</button>
+        </div>
+        <div class="footer-note"><span class="gold-dot"></span> Your library is saved locally on this device. Export a backup to keep it safe.</div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="mobile-nav">
+    <button class="active" data-view="all"><span>▦</span><small>Library</small></button>
+    <button data-view="reading"><span>◷</span><small>Reading</small></button>
+    <button id="mobile-add"><span class="mobile-plus">＋</span><small>Add book</small></button>
+    <button data-view="finished"><span>✓</span><small>Finished</small></button>
+    <button data-view="wishlist"><span>♡</span><small>Wishlist</small></button>
+  </nav>
+
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head"><div><div class="eyebrow"><span class="gold-dot"></span> GROW YOUR COLLECTION</div><h2 id="modal-title">Find a book<span class="gold-text">.</span></h2></div><button class="icon-button" id="close-modal" aria-label="Close">×</button></div>
+      <p class="modal-intro">Search by title and author. We'll look across book catalogues and let you choose the right edition.</p>
+      <div class="add-mode-tabs"><button type="button" class="mode-tab active" data-mode="search">Find one book</button><button type="button" class="mode-tab" data-mode="scan">Scan barcode</button><button type="button" class="mode-tab" data-mode="bulk">Add many</button></div>
+      <div id="scanner-panel" class="scanner-panel hidden"><p>Point your camera at the barcode on the back of a book. ISBN barcodes are usually EAN-13.</p><div id="reader"></div><div class="scanner-actions"><button id="start-scan" class="primary-btn" type="button">Start camera</button><button id="stop-scan" class="outline-btn hidden" type="button">Stop camera</button></div><label class="isbn-manual">Or enter ISBN manually<input id="isbn-input" inputmode="numeric" placeholder="e.g. 9780735211292"></label><button id="isbn-search" class="outline-btn" type="button">Look up ISBN</button><div id="scanner-status" class="lookup-message" aria-live="polite"></div></div>
+      <div id="bulk-panel" class="bulk-panel hidden"><p>Paste one book per line using <code>Title — Author</code> or <code>Title, Author</code>. You can add a large list at once; details and covers can be fetched later by editing individual entries.</p><textarea id="bulk-input" rows="7" placeholder="Atomic Habits — James Clear&#10;Sapiens — Yuval Noah Harari&#10;The Alchemist — Paulo Coelho"></textarea><label class="bulk-status-label">Default reading status<select id="bulk-status"><option value="wishlist">Want to read</option><option value="reading">Currently reading</option><option value="finished">Finished</option></select></label><button id="bulk-save" class="primary-btn" type="button">Add books to my vault</button><div id="bulk-status-message" class="lookup-message"></div></div>
+      <form id="lookup-form" class="lookup-form">
+        <label>BOOK TITLE<input id="query-title" required placeholder="e.g. Atomic Habits" autocomplete="off"></label>
+        <label>AUTHOR <span class="optional">(optional)</span><input id="query-author" placeholder="e.g. James Clear" autocomplete="off"></label>
+        <button class="primary-btn lookup-submit" type="submit"><span>⌕</span> Search the internet</button>
+      </form>
+      <div id="lookup-message" class="lookup-message" aria-live="polite"></div>
+      <div id="results-heading" class="results-heading hidden"><span>CHOOSE YOUR EDITION</span><small id="result-count"></small></div>
+      <div id="search-results" class="search-results"></div>
+      <div id="manual-area" class="manual-area hidden"><button id="manual-save" class="outline-btn">Save details manually instead</button></div>
+      <div id="selected-edition" class="selected-edition hidden"></div>
+      <div id="edit-fields" class="edit-fields hidden">
+        <div class="edit-grid"><label>Title<input id="edit-title" required></label><label>Author<input id="edit-author"></label><label>Genre<input id="edit-genre" placeholder="e.g. Personal development"></label><label>Publication year<input id="edit-year" inputmode="numeric" placeholder="e.g. 2018"></label></div>
+        <label class="description-label">Description<textarea id="edit-description" rows="3" placeholder="A short summary…"></textarea></label>
+        <label>Reading status<select id="edit-status"><option value="wishlist">Want to read</option><option value="reading">Currently reading</option><option value="finished">Finished</option></select></label>
+        <div id="duplicate-warning" class="duplicate-warning hidden"></div>
+        <div class="modal-actions"><button class="outline-btn" id="back-results" type="button">Back to results</button><button class="primary-btn" id="save-book" type="button">Save to my vault <span>→</span></button></div>
+      </div>
+      <div class="source-note">Book details are retrieved from Google Books and Open Library. Cover availability varies by edition.</div>
+    </section>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
