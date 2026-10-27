@@ -22,24 +22,28 @@
 @media(max-width:640px){.koala-welcome{min-height:190px;border-radius:18px;margin-bottom:20px}.koala-welcome>img{object-position:57% center}.koala-welcome:after{background:linear-gradient(90deg,rgba(24,18,16,.82) 0%,rgba(24,18,16,.53) 54%,rgba(24,18,16,.12) 100%)}.koala-welcome-caption{padding:20px 17px;max-width:78%}.koala-welcome-caption h1{font-size:27px}.koala-welcome-caption p{font-size:12px}}
 
 
-/* Gentle welcome animation for Kruti's koala library */
-@media (prefers-reduced-motion: no-preference) {
-  .koala-welcome > img {
-    transform-origin: 58% 78%;
-    animation: koala-gentle-bob 3.6s ease-in-out infinite;
-  }
-  .koala-welcome-caption h1 em {
-    display: inline-block;
-    animation: book-world-glow 3.6s ease-in-out infinite;
-  }
-  @keyframes koala-gentle-bob {
-    0%, 100% { transform: scale(1) translateY(0); }
-    50% { transform: scale(1.018) translateY(-4px); }
-  }
-  @keyframes book-world-glow {
-    0%, 100% { text-shadow: 0 0 0 rgba(243,206,139,0); }
-    50% { text-shadow: 0 0 14px rgba(243,206,139,.35); }
-  }
+
+
+/* Visible motion for Kruti's koala welcome banner */
+.koala-welcome { overflow: hidden; }
+.koala-welcome > img {
+  will-change: transform;
+  transform-origin: 55% 75%;
+  animation: koala-welcome-float 2.4s ease-in-out infinite;
+}
+.koala-welcome-caption h1 em {
+  display: inline-block;
+  animation: book-world-shimmer 2.4s ease-in-out infinite;
+}
+@keyframes koala-welcome-float {
+  0%, 100% { transform: scale(1) translateY(0) rotate(0deg); }
+  25% { transform: scale(1.025) translateY(-7px) rotate(-0.35deg); }
+  50% { transform: scale(1.035) translateY(0) rotate(0.25deg); }
+  75% { transform: scale(1.02) translateY(-5px) rotate(-0.2deg); }
+}
+@keyframes book-world-shimmer {
+  0%, 100% { text-shadow: 0 0 0 rgba(243,206,139,0); }
+  50% { text-shadow: 0 0 18px rgba(243,206,139,.7); }
 }
 @media (prefers-reduced-motion: reduce) {
   .koala-welcome > img, .koala-welcome-caption h1 em { animation: none !important; }
