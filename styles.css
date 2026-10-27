@@ -214,7 +214,7 @@ body {
 .welcome-screen {
   background-image:
     linear-gradient(rgba(247,237,222,.46),rgba(247,237,222,.50)),
-    url("./cozy-library-collage.png"),
+    url("./cozy-library-collage.webp"),
     radial-gradient(ellipse at 50% 32%,rgba(255,253,246,.98),rgba(247,237,222,.72) 47%,transparent 72%),
     linear-gradient(145deg,#d9c1a7 0%,#f6ecdc 44%,#d7bda0 100%);
   background-size:cover,cover,cover,cover;
@@ -228,7 +228,7 @@ body {
 .library-screen {
   background-image:
     linear-gradient(rgba(244,237,226,.91),rgba(244,237,226,.94)),
-    url("./cozy-library-collage.png");
+    url("./cozy-library-collage.webp");
   background-size:cover,cover;
   background-position:center,center top;
   background-attachment:fixed;
@@ -236,7 +236,7 @@ body {
 .hero {
   background-image:
     linear-gradient(100deg,rgba(255,250,241,.92),rgba(231,211,187,.80)),
-    url("./cozy-library-collage.png");
+    url("./cozy-library-collage.webp");
   background-size:cover;
   background-position:center 45%;
 }
