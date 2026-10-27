@@ -243,3 +243,31 @@ body {
 .stat-card,.book-card,.empty-state {
   backdrop-filter:blur(3px);
 }
+
+
+/* FIX: remove UI-mockup collage as a background; use a clean cozy-library atmosphere instead */
+.welcome-screen {
+  background:
+    radial-gradient(ellipse at 50% 24%, rgba(255,253,246,.97) 0%, rgba(247,237,222,.86) 42%, transparent 72%),
+    linear-gradient(145deg,#d8c0a5 0%,#f7eddf 43%,#c9a986 100%) !important;
+  background-image:
+    radial-gradient(ellipse at 50% 24%, rgba(255,253,246,.97) 0%, rgba(247,237,222,.86) 42%, transparent 72%),
+    linear-gradient(145deg,#d8c0a5 0%,#f7eddf 43%,#c9a986 100%) !important;
+}
+.library-screen {
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(255,252,244,.98),transparent 48%),
+    linear-gradient(180deg,#f5ecdf 0%,#efe0cd 100%) !important;
+  background-image:
+    radial-gradient(ellipse at 50% 0%,rgba(255,252,244,.98),transparent 48%),
+    linear-gradient(180deg,#f5ecdf 0%,#efe0cd 100%) !important;
+  background-attachment:scroll !important;
+}
+.hero {
+  background:
+    linear-gradient(110deg,rgba(255,250,241,.97),rgba(231,211,187,.90)),
+    radial-gradient(ellipse at 85% 25%,rgba(185,139,94,.18),transparent 45%) !important;
+  background-image:
+    linear-gradient(110deg,rgba(255,250,241,.97),rgba(231,211,187,.90)),
+    radial-gradient(ellipse at 85% 25%,rgba(185,139,94,.18),transparent 45%) !important;
+}

@@ -1,4 +1,4 @@
-const CACHE_NAME = "bookvault-shell-v21";
+const CACHE_NAME = "bookvault-shell-v14";
 const SHELL = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.json", "./icon.svg","./koala-welcome.png","./cozy-library-collage.png"];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
