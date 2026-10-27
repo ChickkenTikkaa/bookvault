@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="theme-color" content="#f3eadb" />
   <meta name="description" content="Your personal book collection, beautifully organized." />
   <link rel="manifest" href="./manifest.json" />
   <link rel="icon" href="./icon.svg" type="image/svg+xml" />
@@ -76,10 +76,26 @@
         </div>
       </section>
 
-      <section class="stats-row">
+      <section class="stats-row" id="dashboard-stats">
         <div class="stat-card"><span class="stat-icon">▤</span><div><small>IN YOUR VAULT</small><strong id="stat-total">0 <i>books</i></strong></div></div>
         <div class="stat-card"><span class="stat-icon">◷</span><div><small>IN PROGRESS</small><strong id="stat-reading">0 <i>books</i></strong></div></div>
         <div class="stat-card"><span class="stat-icon">✦</span><div><small>COMPLETED</small><strong id="stat-finished">0 <i>books</i></strong></div></div>
+      </section>
+
+
+      <section class="quick-actions" aria-label="BookVault shortcuts">
+        <button class="quick-action" id="quick-library" type="button"><span>♧</span><b>My Library</b></button>
+        <button class="quick-action" id="quick-scan" type="button"><span>⌗</span><b>Scan ISBN</b></button>
+        <button class="quick-action" id="quick-add" type="button"><span>＋</span><b>Add Book</b></button>
+        <button class="quick-action" id="quick-stats" type="button"><span>▥</span><b>My Stats</b></button>
+      </section>
+
+      <section class="continue-section" aria-label="Continue reading">
+        <div class="dashboard-section-head">
+          <h2><span>▤</span> Continue Reading</h2>
+          <button type="button" id="continue-view-all">View All <span>→</span></button>
+        </div>
+        <div class="continue-books" id="continue-books"></div>
       </section>
 
       <section class="collection-section">

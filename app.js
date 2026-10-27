@@ -43,6 +43,14 @@
     const total=state.books.length, reading=state.books.filter(b=>b.status==="reading").length, finished=state.books.filter(b=>b.status==="finished").length;
     $("stat-total").innerHTML=`${total} <i>${total===1?"book":"books"}</i>`; $("stat-reading").innerHTML=`${reading} <i>${reading===1?"book":"books"}</i>`; $("stat-finished").innerHTML=`${finished} <i>${finished===1?"book":"books"}</i>`;
     $("side-total").textContent=total;
+    const continueBooks = state.books.filter(b=>b.status==="reading").slice(0,4);
+    const shownContinue = continueBooks.length ? continueBooks : state.books.slice(0,4);
+    $("continue-books").innerHTML = shownContinue.length ? shownContinue.map(book => `
+      <button class="continue-book" type="button" data-continue-id="${esc(book.id)}" aria-label="Open ${esc(book.title)}">
+        <span class="continue-cover">${cardCover(book)}</span>
+        <span class="continue-title">${esc(book.title)}</span>
+        <small>${esc(book.author||"Unknown author")}</small>
+      </button>`).join("") : `<div class="continue-empty"><span>♡</span><strong>Your next chapter awaits.</strong><small>Add a book to see it here.</small></div>`;
     const search=normalize($("local-search").value||""), sort=$("sort-select").value;
     let list=state.books.filter(b=>state.view==="all"||b.status===state.view);
     if(search) list=list.filter(b=>normalize([b.title,b.author,b.genre,b.description,b.year].join(" ")).includes(search));
@@ -211,6 +219,12 @@
   document.querySelectorAll("[data-filter]").forEach(btn=>btn.addEventListener("click",()=>{state.view=btn.dataset.filter;render();}));
   document.querySelectorAll("[data-layout]").forEach(btn=>btn.addEventListener("click",()=>{state.layout=btn.dataset.layout;render();}));
   $("hero-add").onclick=$("section-add").onclick=$("empty-add").onclick=$("mobile-add").onclick=openModal;
+  $("quick-add").onclick=openModal;
+  $("quick-scan").onclick=()=>{openModal();setAddMode("scan");};
+  $("quick-library").onclick=()=>{state.view="all";render();$("collection-title").scrollIntoView({behavior:"smooth",block:"start"});};
+  $("quick-stats").onclick=()=>$("dashboard-stats").scrollIntoView({behavior:"smooth",block:"center"});
+  $("continue-view-all").onclick=()=>{state.view="reading";render();$("collection-title").scrollIntoView({behavior:"smooth",block:"start"});};
+  $("continue-books").addEventListener("click",e=>{const card=e.target.closest("[data-continue-id]");if(card){const book=state.books.find(b=>b.id===card.dataset.continueId);if(book)bookMenu(book.id);}});
   $("close-modal").onclick=closeModal; $("modal-backdrop").addEventListener("click",e=>{if(e.target===$("modal-backdrop"))closeModal();});
   $("lookup-form").addEventListener("submit",doLookup); $("search-results").addEventListener("click",e=>{const item=e.target.closest("[data-result]");if(item)selectResult(Number(item.dataset.result));});
   $("manual-save").onclick=manualEntry; $("save-book").onclick=saveBook; $("back-results").onclick=()=>{$("edit-fields").classList.add("hidden");$("selected-edition").classList.add("hidden");document.querySelectorAll(".result-item").forEach(el=>el.classList.remove("selected"));};
