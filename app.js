@@ -227,5 +227,15 @@
   window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();state.installPrompt=e;$("install-btn").classList.remove("hidden");});
   $("install-btn").onclick=async()=>{if(!state.installPrompt){toast("Use your browser menu and choose Add to Home Screen.");return;}state.installPrompt.prompt();await state.installPrompt.userChoice;state.installPrompt=null;$("install-btn").classList.add("hidden");};
   if("serviceWorker" in navigator && location.protocol!=="file:") window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+  const welcomeScreen = $("welcome-screen");
+  const libraryScreen = $("library-screen");
+  $("enter-library").addEventListener("click", () => {
+    welcomeScreen.classList.add("welcome-leaving");
+    window.setTimeout(() => {
+      welcomeScreen.classList.add("is-hidden");
+      libraryScreen.classList.remove("is-hidden");
+      window.scrollTo({top:0,behavior:"instant"});
+    }, 420);
+  });
   render();
 })();

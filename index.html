@@ -9,9 +9,28 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./styles.css" />
   <title>Kruti’s BookVault — My Book World</title>
+  <meta name="theme-color" content="#f3eadb" />
 </head>
 <body>
-  <div class="app-shell">
+  <section id="welcome-screen" class="welcome-screen" aria-label="Welcome to Kruti's BookVault">
+    <div class="welcome-library-glow" aria-hidden="true"></div>
+    <div class="welcome-card">
+      <div class="welcome-kicker">A LITTLE PLACE JUST FOR YOU</div>
+      <div class="welcome-koala-wrap">
+        <img src="./koala-welcome.png" alt="Kruti's koala waving hello and blowing a flying kiss" />
+        <span class="kiss-heart" aria-hidden="true">💗</span>
+        <span class="hello-spark hello-spark-one" aria-hidden="true">✦</span>
+        <span class="hello-spark hello-spark-two" aria-hidden="true">♡</span>
+      </div>
+      <p class="welcome-eyebrow">☕ STORIES • COFFEE • COZINESS</p>
+      <h1>Welcome to<br><em>Kruti's BookVault</em></h1>
+      <p class="welcome-subtitle">A cozy little world for all the stories you love.</p>
+      <button id="enter-library" class="enter-library-btn">Enter My Book World <span aria-hidden="true">→</span></button>
+      <div class="welcome-footnote">Make yourself at home. There's always one more chapter.</div>
+    </div>
+  </section>
+
+  <div id="library-screen" class="app-shell library-screen is-hidden">
     <aside class="sidebar">
       <a class="brand" href="#" aria-label="BookVault home">
         <span class="brand-mark">B<span>V</span></span>
@@ -37,12 +56,7 @@
         <button id="install-btn" class="install-btn hidden">＋ Install app</button>
       </header>
 
-      <section class="koala-welcome" aria-label="Welcome to my book world">
-        <img src="./koala-welcome.png" alt="A cute koala waving and blowing a kiss in Kruti’s BookVault" />\n        <span class="kiss-heart" aria-hidden="true">💗</span>\n        <span class="hello-spark hello-spark-one" aria-hidden="true">✦</span>\n        <span class="hello-spark hello-spark-two" aria-hidden="true">♡</span>
-        <div class="koala-welcome-caption"><span>KRUTI'S LITTLE LIBRARY</span><h1>Welcome to<br><em>My Book World</em></h1><p>Every book holds a little adventure.</p></div>
-      </section>
-
-      <section class="hero">
+<section class="hero">
         <div class="hero-copy">
           <div class="eyebrow"><span class="gold-dot"></span> YOUR PRIVATE COLLECTION</div>
           <h1>A world of stories.<br><em>All in one place.</em></h1>
