@@ -8,3 +8,15 @@
 @media(max-width:370px){.book-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cover-wrap{height:210px}.hero h1{font-size:30px}.stat-card{flex-direction:column;align-items:flex-start}.stat-card small{white-space:normal}}
 
 .add-mode-tabs{display:flex;gap:6px;border-bottom:1px solid #273248;margin:0 0 17px;padding-bottom:10px;overflow-x:auto}.mode-tab{background:transparent;border:1px solid transparent;color:#8d9ab0;border-radius:8px;padding:9px 11px;font-size:10px;white-space:nowrap}.mode-tab.active{background:#29283a;border-color:#6e5b36;color:var(--gold2)}.scanner-panel,.bulk-panel{padding:13px;border:1px solid #2b374d;border-radius:12px;background:#111a2b}.scanner-panel p,.bulk-panel p{font-size:10px;color:#a0adc0;line-height:1.6;margin:0 0 12px}.scanner-actions{display:flex;gap:8px;margin:10px 0}.scanner-actions button{flex:1}.isbn-manual,.bulk-status-label{display:flex;flex-direction:column;gap:7px;font-size:9px;letter-spacing:1px;color:#9aa7bb;margin:12px 0}.isbn-manual input,.bulk-panel textarea,.bulk-status-label select{background:#0d1525;border:1px solid #2b3850;color:#f4f1e9;border-radius:8px;padding:11px;font:12px 'DM Sans',sans-serif;letter-spacing:0;width:100%}.bulk-panel textarea{resize:vertical;line-height:1.6}.bulk-panel .primary-btn{width:100%}#reader{width:100%;max-width:420px;margin:0 auto;overflow:hidden;border-radius:10px}#reader video{border-radius:10px}#reader__dashboard_section_csr button{background:#d6b36a;border:0;border-radius:6px;padding:7px;color:#171717;margin:5px}#reader__dashboard_section_swaplink{color:#d6b36a!important}
+
+
+/* Kruti's koala welcome banner */
+.koala-welcome{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;min-height:220px;margin:0 0 26px;border:1px solid rgba(221,174,99,.28);border-radius:24px;background:#211a17;box-shadow:0 16px 40px rgba(0,0,0,.18)}
+.koala-welcome>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;z-index:-2}
+.koala-welcome:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(24,18,16,.88) 0%,rgba(24,18,16,.62) 43%,rgba(24,18,16,.04) 100%)}
+.koala-welcome-caption{padding:28px 30px;max-width:62%;color:#fff8ed;text-shadow:0 2px 12px rgba(0,0,0,.2)}
+.koala-welcome-caption>span{font-size:10px;letter-spacing:.18em;font-weight:800;color:#f3ce8b}
+.koala-welcome-caption h1{font-size:clamp(25px,3.6vw,42px);line-height:1.08;margin:12px 0 8px;font-weight:750}
+.koala-welcome-caption h1 em{font-style:normal;color:#f3ce8b}
+.koala-welcome-caption p{font-size:13px;margin:0;color:#fff0dc}
+@media(max-width:640px){.koala-welcome{min-height:190px;border-radius:18px;margin-bottom:20px}.koala-welcome>img{object-position:57% center}.koala-welcome:after{background:linear-gradient(90deg,rgba(24,18,16,.82) 0%,rgba(24,18,16,.53) 54%,rgba(24,18,16,.12) 100%)}.koala-welcome-caption{padding:20px 17px;max-width:78%}.koala-welcome-caption h1{font-size:27px}.koala-welcome-caption p{font-size:12px}}
